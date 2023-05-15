@@ -1,0 +1,52 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Platform for Crimeans</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-icons">
+            <div></div>
+            <div><img src="{% static 'img/CrimeaLogo.png' %}" /></div>
+            <div>
+                <a href=""><img style="width: 5px" src="{% static 'img/account.png' %}" /></a>
+                <a href="mailto:go-hromada@proton.me"><img style="width: 5px" src="{% static 'img/mail.png' %}" /></a>
+                <a href="t.me/krymska-hromada"><img style="width: 5px" src="{% static 'img/telegram.png' %}" /></a>
+            </div>
+        </div>
+        <div class="menu-languages">
+            <div id="app"></div>
+            <div class="languages">
+                <label for="languages">Мова &#9660;</label>
+                <select id="languages">
+                    <option value="ua">Українська</option>
+                    <option value="ru">Російська</option>
+                    <option value="ct">Кримськотатарська</option>
+                </select>
+                <script>
+		        const languageSelect = document.getElementById('languages');
+		        languageSelect.addEventListener('change', () => {
+			    const selectedLanguage = languageSelect.value;
+			    window.location.href = `/${selectedLanguage}/`;
+		        });
+                </script>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div><img src="{% static 'img/CrimeaLogo.png' %}" /></div>
+        <div><p>З любов'ю, від Твоєї Громади в Україні🇺🇦</p></div>
+    </footer>
+</body>
+</html>
